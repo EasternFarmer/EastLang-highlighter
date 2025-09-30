@@ -1,0 +1,5 @@
+node_modules
+*.vsix
+.env
+eastlang.tmLanguage.json.bak
+vsc-extension-quickstart.md

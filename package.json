@@ -1,0 +1,25 @@
+{
+  "name": "eastlang-highlighter",
+  "displayName": "EastLang-highlighter",
+  "description": "EastLang syntax highlighter for VS Code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "eastlang",
+      "aliases": ["EastLang", "eastlang"],
+      "extensions": [".el",".eastlang"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "eastlang",
+      "scopeName": "source.eastlang",
+      "path": "./syntaxes/eastlang.tmLanguage.json"
+    }]
+  }
+}
