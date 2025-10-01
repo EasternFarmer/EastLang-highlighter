@@ -5,6 +5,7 @@
     { "include": "#comments" },
     { "include": "#strings" },
     { "include": "#numbers" },
+    { "include": "#lang-constants" },
     { "include": "#const-decl" },
     { "include": "#keywords" },
     { "include": "#function-decl" },
@@ -40,7 +41,10 @@
           "end": "\"",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.eastlang" } },
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.eastlang" } },
-          "patterns": []
+          "patterns": [
+            { "name": "constant.character.escape.eastlang", "match": "\\\\[nrtv\"'\\\\]" },
+            { "name": "invalid.illegal.newline-in-string.eastlang", "match": "\\n" }
+          ]
         },
         {
           "name": "string.quoted.single.eastlang",
@@ -48,7 +52,9 @@
           "end": "'",
           "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.eastlang" } },
           "endCaptures": { "0": { "name": "punctuation.definition.string.end.eastlang" } },
-          "patterns": []
+          "patterns": [
+            { "name": "constant.character.escape.eastlang", "match": "\\\\[nrt\"'\\\\]" }
+          ]
         }
       ]
     },
@@ -58,6 +64,18 @@
         {
           "name": "constant.numeric.number.eastlang",
           "match": "\\b[0-9]+\\.?[0-9]*\\b"
+        }
+      ]
+    },
+
+    "lang-constants": {
+      "patterns": [
+        {
+          "name": "constant.language.eastlang",
+          "match": "\\b(true|false|empty|pi|e)\\b",
+          "captures": {
+            "1": { "name": "storage.modifier.const.eastlang" }
+          }
         }
       ]
     },
@@ -81,7 +99,7 @@
       "patterns": [
         {
           "name": "keyword.control.eastlang",
-          "match": "\\b(?:const|callable|if|else|while|break|continue)\\b"
+          "match": "\\b(?:const|callable|if|else|while|break|continue|and|or|xor)\\b"
         },
         {
           "name": "storage.modifier.eastlang",
@@ -142,6 +160,8 @@
           "end": "\\)",
           "endCaptures": { "0": { "name": "punctuation.definition.arguments.end.eastlang" } },
           "patterns": [
+            { "include": "#keywords" },
+            { "include": "#lang-constants" },
             { "include": "#strings" },
             { "include": "#numbers" },
             { "include": "#identifiers" },
@@ -164,7 +184,7 @@
       "patterns": [
         {
           "name": "keyword.operator.eastlang",
-          "match": "(?:\\+|\\-|\\*|\\/|%|=)"
+          "match": "(?:\\+|\\-|\\*|\\/|%|==|!=|<=|>=|<|>|=)"
         }
       ]
     },
