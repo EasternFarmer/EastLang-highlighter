@@ -4,7 +4,7 @@
   "description": "EastLang syntax highlighter for VS Code",
   "repository": {"url": "https://github.com/EasternFarmer/EastLang-highlighter"},
   "publisher": "EasternFarmer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.104.0"
   },

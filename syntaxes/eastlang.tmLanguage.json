@@ -5,6 +5,7 @@
     { "include": "#comments" },
     { "include": "#strings" },
     { "include": "#numbers" },
+    { "include": "#const-decl" },
     { "include": "#keywords" },
     { "include": "#function-decl" },
     { "include": "#function-call" },
@@ -57,6 +58,21 @@
         {
           "name": "constant.numeric.number.eastlang",
           "match": "\\b[0-9]+\\.?[0-9]*\\b"
+        }
+      ]
+    },
+
+    "const-decl": {
+      "patterns": [
+        {
+          "name": "meta.const-declaration.eastlang",
+          "begin": "(const)\\s+\\b([A-Za-z_][A-Za-z0-9_]*)\\b",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.eastlang" },
+            "2": { "name": "storage.modifier.const.eastlang" }
+          },
+          "end": "=",
+          "patterns": []
         }
       ]
     },
